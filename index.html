@@ -1,0 +1,1543 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Rethinking CSS</title>
+        <meta name="description" content="Go Atomic for Scaling, Performance and Simplicity">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
+    </head>
+    <body class="expand-v wide crop-x">
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center pad-3">
+                <h1 data-tween="outro:explode:1:.25" class="text-light">Rethinking CSS</h1>
+                <h5 data-tween="outro:explode:1:.25">Go Atomic for Scaling, Performance and Simplicity</h5>
+                <p data-tween="outro:fadeOut:.25" class="pad-1 text-grey">A slide deck by John Polacek</p>
+                <p data-tween="outro:fadeOut:.25"><a href="https://twitter.com/johnpolacek" class="btn btn-large bgr-blue-lt text-14">Follow @johnpolacek</a></p>
+                <div class="pad-3-top marg-3-top" data-tween="remove">
+                    <button onclick="enterPresentationMode()" class="pad-4 text-36 uppercase pad-3 text-light pulse" id="enterPresentationMode">Enter Presentation Mode</button>
+                    <p class="marg-3-top text-grey"><span class="italic">...or just scroll</span><br/><span class="text-24">&#8595;</span></p>
+                </div>
+                <div data-tween="outro:scaleOut:.5" class="marg-3-top hidden tweendeck-show">
+                    <p class="marg-3-top text-grey tweendeck-show">Key Press or Swipe</p>
+                    <div>
+                        <span class="inlineblock pad-2-sides pad-1-vert text-36 marg-2-sides shadow rounded">&#8592;</span>
+                        <span class="inlineblock pad-2-sides pad-1-vert text-36 marg-2-sides shadow rounded">&#8594;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center pad-3-sides">
+                <h2 data-tween="intro:implode:2,outro:explode:2" class="text-light pad-3-bottom">Open-Mindedness Required</h2>
+                <h5 data-tween="intro:implode:2,outro:explode:2">The following content flies in the face of traditional CSS</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center" data-tween="intro:fadeIn:1,outro:fadeOut:1">
+                <h3 class="text-light pad-3-bottom">If you love the way you&nbsp;write&nbsp;CSS<br/>and don&rsquo;t want to change...</h3>
+                <h3 class="text-96"><span class="inline" data-tween="intro:slideInLeft:1:1">then</span> <span class="inline" data-tween="intro:slideInRight:1:1.25">don&rsquo;t.</span></h3>
+                <p class="marg-3-top text-grey" data-tween="intro:fadeIn:1:2">( Obligatory disclaimer )</p>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center">
+                <h4 class="wide pad-2-bottom text-light" data-tween="intro:slideInUp:1:0.2,outro:slideOutUp:.5:.1"><strong>What</strong> is Atomic CSS?</h4>
+                <h4 class="wide pad-2-bottom text-light" data-tween="intro:slideInUp:1:0.4,outro:slideOutUp:.5:.2"><strong>Why</strong> use Atomic CSS?</h4>
+                <h4 class="wide pad-2-bottom text-light" data-tween="intro:slideInUp:1:0.6,outro:slideOutUp:.5:.3"><strong>Why</strong> is this so controversial?</h4>
+                <h4 class="wide pad-2-bottom text-light" data-tween="intro:slideInUp:1:0.8,outro:slideOutUp:.5:.4"><strong>Where</strong> is Atomic CSS in use?</h4>
+                <h4 class="wide pad-2-bottom text-light" data-tween="intro:slideInUp:1:1,outro:slideOutUp:.5:.6"><strong>How</strong> do I get started with Atomic CSS?</h4>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center" data-tween="outro:fadeOut:.25">
+                <h2 class="pad-3 text-light" data-tween="intro:implode:2">What is Atomic&nbsp;CSS?</h2>
+                <h5 class="pad-3" data-tween="intro:scaleIn:.5:2">( also known as Functional CSS )</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center" data-tween="outro:fadeOut:.25">
+                <h3 class="text-light" data-tween="intro:fadeIn:.5">You probably already write <br/>Helper / Utility Classes</h3>
+                <div class="marg-3-vert wide" data-tween="intro:slideInUp:1:.5"><code class="text-96">.clearfix</code></div>
+                <div class="marg-3-vert wide" data-tween="intro:slideInUp:1:.6"><code class="text-96">.grid-*</code></div>
+                <div class="marg-3-vert wide" data-tween="intro:slideInUp:1:.7"><code class="text-96">.hidden</code></div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center" data-tween="outro:fadeOut:.25">
+                <h2 class="text-light pad-3-bottom" data-tween="intro:fadeIn:.5">Why Do Helper Classes Help?</h2>
+                <h5 class="pad-3-top pad-2-bottom"><span class="inline" data-tween="intro:elasticInUp:1:.5,intro:scaleIn:1:.5">Easy to understand</span> <span class="text-reg pad-2-sides" data-tween="intro:fadeIn:2:.5">+</span> <span class="inline" data-tween="intro:elasticInUp:1:1,intro:scaleIn:1:1">Easy to add/remove</span></h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center">
+                <h2 data-tween="intro:fadeIn:.5:outro:fadeOut:.25" class="text-light pad-3-bottom">How many times do&nbsp;you <br/>declare the same properties?</h2>
+                <div class="grid pad-3-top">
+                    <div class="col-4 row-12 bold grid-align-center">
+                        <h5 data-tween="intro:implodeWords:1:.5:outro:explodeWords:1" class="wide pad-3-bottom">margin</h5>
+                        <h5 data-tween="intro:implodeWords:1:.75:outro:explodeWords:1" class="wide pad-3-bottom">padding</h5>
+                        <h5 data-tween="intro:implodeWords:1:1:outro:explodeWords:1" class="wide pad-3-bottom">width</h5>
+                    </div>
+                    <div class="col-4 row-12 bold grid-align-center">
+                        <h5 data-tween="intro:implodeWords:1:1.25:outro:explodeWords:1" class="wide pad-3-bottom">color</h5>
+                        <h5 data-tween="intro:implodeWords:1:1.5:outro:explodeWords:1" class="wide pad-3-bottom">font-size</h5>
+                        <h5 data-tween="intro:implodeWords:1:1.75:outro:explodeWords:1" class="wide pad-3-bottom">font-weight</h5>
+                        <h5 data-tween="intro:implodeWords:1:3.5:outro:explodeWords:1" class="wide pad-3-bottom pad-2-top italic">...etc.</h5>
+                    </div>
+                    <div class="col-4 row-12 bold grid-align-center">
+                        <h5 data-tween="intro:implodeWords:1:2:outro:explodeWords:1" class="wide pad-3-bottom">font-style</h5>
+                        <h5 data-tween="intro:implodeWords:1:2.25:outro:explodeWords:1" class="wide pad-3-bottom">text-align</h5>
+                        <h5 data-tween="intro:implodeWords:1:2.5:outro:explodeWords:1" class="wide pad-3-bottom">border</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="wide text-center" data-tween="outro:slideOutUp:.5">
+                <h5 data-tween="intro:slideInRightChars:1.5" class="text-48 text-reg italic marg-3-bottom pad-3-bottom">4<span class="text-36">...</span> 9<span class="text-36">...</span> 42<span class="text-36">...</span> 167<span class="text-36">...</span> ?</h5>
+                <h5 data-tween="intro:fadeIn:.5:1.5" class="text-64 text-reg pad-0">It could be</h5>
+                <h5 data-tween="intro:spinIn:1:1.5,intro:scaleIn:.75:1.5" class="text-360" style="font-family:Monaco;">1</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 rel">
+            <div class="box-center text-center front pad-3-bottom marg-3-bottom" data-tween="intro:slideInUp:.5,outro:slideOutDown:.5">
+                <h2 class="text-light">Utility Classes All<sup>*</sup> The Things!</h2>
+                <h5 data-tween="intro:bounceInUp:.5:1.5">* Most of</h5>
+            </div>
+            <div class="abs pos-bottom pos-left wide text-center">
+                <img class="img-responsive" data-tween="intro:bounceInUp:.5:1,outro:slideOutDown:.5" src="images/all-the-things.jpg" alt="Cartoon Image of Excited Guy Playing Guitar" />
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-1200 box-center pad-3-sides text-center">
+                <p class="wide text-reg text-48 pad-3-bottom marg-3-bottom">Atomic CSS is the approach to CSS architecture that favors small, single-purpose classes with names based on visual function.</p>
+                <cite class="wide " data-tween="intro:fadeIn:.25:.5,outro:fadeOut:.25">Source: <a href="https://css-tricks.com/lets-define-exactly-atomic-css/">Let’s Define Exactly What Atomic CSS is (CSS Tricks)</a></cite>
+            </div>
+        </section>
+        
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center pad-3-sides" data-tween="outro:fadeOut:.25">
+                <h2 class="text-light pad-3-bottom" data-tween="intro:bounceInUp:.5">What does it look like?</h2>
+                <div data-tween="intro:fadeInBlur:2:.33">
+                    <h4 class="text-red pad-2-top">!!! Hot Drama Alert !!!</h4>
+                    <h6 class="pad-2-top text-reg">The following code may provoke strong reactions in some people.</h6>
+                    <h6 class="pad-3-bottom">You have been warned.</h6>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw col-12 row-12 rel">
+            <div class="expand-v wide grid grid-align-middle grid-align-center bgr-grey-lt" data-tween="intro:fadeIn:.5,intro:backgroundColor:.5:0:#ececec">
+                <div class="wide pad-3 s-pad-2 text-center" data-tween="outro:fadeOut:.25">
+                    <h5 class="text-reg pad-3 s-pad-2">For example, to do this...</h5>
+                    <div data-tween="intro:slideInUp:.5:.5,intro:fadeIn:.5:.5,outro:fadeOut:.25" class="pad-2-sides" id="signInContainer">
+                        <div id="signInContainer" class="box-640 box-center grid pad-3 bgr-white shadow rounded s-marg-3-top">
+                            <div class="col-6 s-col-12 pad-3-right s-pad-1-right s-border-bottom s-pad-2-bottom s-marg-3-bottom">
+                                <h5 class="col-12 text-light text-blue-lt pad-2-bottom">Sign In</h5>
+                                <form id="loginForm" class="pad-1-right">
+                                    <input class="marg-1-bottom" type="text" placeholder="User Name" required="required">
+                                    <input class="marg-3-bottom" type="text" placeholder="Password" required="required">
+                                    <input type="submit" class="btn float-right" value="Log In">
+                                </form>
+                            </div>
+                            <div class="col-6 s-col-12 pad-3-left border-left s-border-0 s-pad-0">
+                                <h5 class="col-12 text-light text-blue-lt pad-2-bottom pad-1-left s-pad-0-left">Join</h5>
+                                <p class="pad-2-bottom pad-1-left s-pad-0-left">Signing up for an account is quick and easy.</p>
+                                <div class="wide pad-3-top pad-1-left">
+                                    <button id="createAccount" class="float-right">Create Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+        </section>
+
+        <section class="expand-v width-vw col-12 row-12 rel">
+            <div class="expand-v wide grid grid-align-middle grid-align-center bgr-grey-lt">
+                <div class="wide pad-3 s-pad-2 text-center" data-tween="outro:fadeOut:.25">
+                    <h5 class="text-reg pad-3 s-pad-2" data-tween="intro:fadeIn:.5">You might do this...</h5>
+                    <pre data-tween="intro:slideInUp:.5:.5,intro:fadeIn:.5:.5,outro:fadeOut:.25" class="text-left pad-3 bgr-white shadow rounded"><code class="text-24">&lt;div class="box-640 flex pad-3 bgr-white shadow rounded"&gt;
+  &lt;div class="col-6 s-col-12 pad-3-right s-pad-1-right s-border-bottom s-pad-3-bottom s-marg-3-bottom"&gt;
+    &lt;h5 class="text-light text-blue-lt pad-2-bottom"&gt;Sign In&lt;/h5&gt;
+    &lt;form id="loginForm" class="pad-1-right"&gt;
+      &lt;input class="marg-1-bottom" type="text" placeholder="User Name" required="required"&gt;
+      &lt;input class="marg-3-bottom" type="text" placeholder="Password" required="required"&gt;
+      &lt;input type="submit" class="btn float-right marg-1-top" value="Log In"&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div class="col-6 s-col-12 pad-3-left border-left s-border-0 s-pad-0"&gt;
+    &lt;h5 class="text-light text-blue-lt pad-2-bottom pad-1-left s-pad-0-left"&gt;Join&lt;/h5&gt;
+    &lt;p class="pad-3-bottom pad-1-left s-pad-0-left"&gt;Signing up for an account is quick and easy.&lt;/p&gt;
+    &lt;div class="wide pad-3-top pad-1-left"&gt;
+      &lt;button id="createAccount" class="float-right"&gt;Create Account&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+        
+        <section class="expand-v width-vwcol-12 row-12 rel">
+            <div class="expand-v wide pad-3 bgr-grey-lt s-pad-0" data-tween="outro:fadeOut:.25,outro:backgroundColor:.5:0:#fff">
+                <pre class="wide text-center pad-3 s-pad-2 marg-3-top"><code class="text-48 bold" data-tween="intro:fadeIn:.5">"box-640 flex pad-3 bgr-white shadow rounded"</code></pre>
+                <div class="grid text-36 pad-3-sides marg-3 s-pad-0 s-marg-1">
+                    <div class="col-4 s-col-6">
+                        <pre class="marg-2 pad-2-vert pad-2-sides l-pad-3-sides wide bgr-white rounded" data-tween="intro:slideInUp:.5:.5,intro:fadeIn:.5:.5"><code class="bold">.box-640 {
+  width:100%;
+  max-width: 640px;
+}</code></pre>
+                    </div>
+                    <div class="col-4 s-col-6">
+                        <pre class="marg-2 pad-2-vert pad-2-sides l-pad-3-sides wide bgr-white rounded" data-tween="intro:slideInUp:.5:.6,intro:fadeIn:.5:.6"><code class="bold">.flex {
+  display: flex;
+  flex-wrap: wrap;
+}</code></pre>
+                    </div>
+                    <div class="col-4 s-col-6">
+                        <pre class="marg-2 pad-2-vert pad-2-sides l-pad-3-sides wide bgr-white rounded" data-tween="intro:slideInUp:.5:.7,intro:fadeIn:.5:.7"><code class="bold">.shadow {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+}</code></pre>
+                    </div>
+                    <div class="col-4 s-col-6">
+                        <pre class="marg-2 pad-2-vert pad-2-sides l-pad-3-sides wide bgr-white rounded" data-tween="intro:slideInUp:.8:.5,intro:fadeIn:.5:.8"><code class="bold">.bgr-white {
+  background-color: #fff;
+}</code></pre>
+                    </div>
+                    <div class="col-4 s-col-6">
+                        <pre class="marg-2 pad-2-vert pad-2-sides l-pad-3-sides wide bgr-white rounded" data-tween="intro:slideInUp:.9:.5,intro:fadeIn:.5:.9"><code class="bold">.rounded {
+  border-radius: 4px;
+}</code></pre>
+                    </div>
+                    <div class="col-4 s-col-6">
+                        <pre class="marg-2 pad-2-vert pad-2-sides l-pad-3-sides wide bgr-white rounded" data-tween="intro:slideInUp:.5:1,intro:fadeIn:.5:1"><code class="bold">.pad-3 {
+  padding: 3.2rem;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="intro:backgroundColor:0:0:#fff" class="box-1100 box-center text-center italic pad-3-sides">
+                <blockquote>
+                    <p class="text-64 bold pad-3-sides" data-tween="intro:slideInLeft:.5,outro:slideOutRight:.25">&ldquo;Functional CSS is just shifting complexity out of stylesheets and into templates.&rdquo;</p>
+                    <cite data-tween="intro:fadeIn:.25:.5,outro:fadeOut:.25"><a href="https://twitter.com/VinSpee">Vince Speelman <br/>Front End Engineer at <a href="http://tedconf.github.io/">TED</a></a></cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-1200 grid" data-tween="outro:fadeOut:.25">
+                <div class="col-6">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:slideInUp:1,intro:spinIn:1" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Traditional CSS</h5>
+                            <h4>Write HTML</h4>
+                            <h4>Write CSS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:slideInUp:1:1.1,intro:spinIn:1:1.1" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Atomic CSS</h5>
+                            <h4>Write HTML</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 pad-3-vert">
+            <div class="box-center text-center" data-tween="intro:fadeIn:.5,outro:fadeOut:.25">
+                <h2 class="text-light">Atomic CSS Class Names</h2>
+            </div>
+            <div class="grid wide marg-3-bottom pad-3">
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="0:slideInUp:1,0:spinIn:1,outro:slideOutDown:.5" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Shorthand</h5>
+                            <h4>Favors brevity</h4>
+<pre class="pad-1-sides pad-2-vert bgr-grey-lt text-36 bold"><code>.f1 { font-size: 3rem; }
+.ma0 { margin: 0; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-2 s-marg-0-sides">
+                        <div data-tween="1:slideInUp:1,1:spinIn:1,outro:slideOutDown:.5" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Longhand</h5>
+                            <h4>Favors Readability</h4>
+<pre class="pad-1-sides pad-2-vert bgr-grey-lt text-36 bold"><code>.fontsize-xxl { font-size: 3rem; }
+.marg-0 { margin: 0; }
+.margin-0 { margin: 0; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 pad-3-vert">
+            <div class="box-center text-center" data-tween="intro:fadeIn:.5,outro:fadeOut:.25">
+                <h2 class="text-light">Atomic CSS Architectures</h2>
+            </div>
+            <div class="box-1200 grid marg-3-bottom pad-3-bottom">
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-2 s-marg-0">
+                        <div data-tween="0:slideInUp:1,0:spinIn:1,outro:slideOutDown:.5" class="rounded shadow pad-3 text-center">
+                            <h4 class="text-light border-bottom marg-3-bottom">Static</h4>
+                            <h5 class="marg-2-bottom">Familiar way to write CSS</h5>
+                            <h5 class="marg-2-bottom">Use a preprocessor</h5>
+                            <h5 class="marg-2-bottom">Unit-based design system</h5>
+                            <h5 class="marg-2-bottom">Easily understood</h5>
+                            <h5>Enforceable style rules</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="1:slideInUp:1,1:spinIn:1,outro:slideOutDown:.5" class="rounded shadow pad-3 text-center">
+                            <h4 class="text-light border-bottom marg-3-bottom">Programmatic</h4>
+                            <h5 class="marg-2-bottom">No more writing CSS</h5>
+                            <h5 class="marg-2-bottom">Use a build tool</h5>
+                            <h5 class="marg-2-bottom">Automatic CSS generation</h5>
+                            <h5 class="marg-2-bottom">Fully optimized</h5>
+                            <h5>No unused styles</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 pad-3-vert">
+            <div class="box-center text-center marg-3-vert pad-3-vert" data-tween="0:hide:.49">
+                <h2 data-tween="intro:fadeIn:.5,0:slideOutLeft:.25" class="text-light">Why use Atomic CSS?</h2>
+            </div>
+            <p data-tween="css:position:absolute,css:top:0,intro:hide,0:show:.5,0:fadeIn:.5:.51,outro:fadeOut:.25" class="wide pad-3-top marg-3-top text-18 text-grey text-center">As heard on the <br/><a href="http://frontendhappyhour.com/episodes/drinking-with-more-style-and-less-sass/" title="Episode 022 - Drinking with more style and less sass">Front End Happy Hour Podcast</a></p>
+            <div data-tween="intro:hide,0:show:.5,1:hide:.39" class="box-center text-center italic pad-3-sides marg-3-vert">
+                <blockquote>
+                    <p data-tween="0:slideInLeft:.5:.5,1:slideOutRight:.5" class="text-64 bold pad-3">&ldquo;Unfortunately you have to use CSS.&rdquo;</p>
+                    <cite class="text-24" data-tween="0:fadeIn:.5:1,1:fadeOut:.25">Front End Engineer at Netflix</cite>
+                </blockquote>
+            </div>
+            <div data-tween="intro:hide,1:show:.5,2:hide:.49" class="box-center text-center italic pad-3-sides marg-3-vert">
+                <blockquote>
+                    <p data-tween="1:slideInLeft:.5:.52,2:slideOutRight:.5" class="text-64 bold pad-3">&ldquo;I&rsquo;m really bad at CSS.&rdquo;</p>
+                    <cite class="text-24" data-tween="1:fadeIn:.5:1,2:fadeOut:.25">Front End Engineer at Evernote</cite>
+                </blockquote>
+            </div>
+            <div data-tween="intro:hide,2:show:.5,3:hide:.49" class="box-center box-1100 text-center italic marg-3-vert">
+                <blockquote>
+                    <p data-tween="2:slideInLeft:.5:.52,3:slideOutRight:.5" class="text-64 bold pad-3">&ldquo;You try to write something clean, but then it turns into something shitty.&rdquo;</p>
+                    <cite class="text-24" data-tween="2:fadeIn:.5:1,3:fadeOut:.25">Front End Engineer at LinkedIn</cite>
+                </blockquote>
+            </div>
+            <div data-tween="intro:hide,3:show:.5" class="box-center box-1200 text-center italic marg-3-vert">
+                <blockquote>
+                    <p data-tween="3:slideInLeft:.5:.52,outro:slideOutRight:.5" class="text-64 bold pad-3">&ldquo;At LinkedIn we have a massive CSS file that is 3.5MB.&rdquo;</p>
+                    <cite class="text-24" data-tween="3:fadeIn:.5:1,outro:fadeOut:.25">Front End Engineer at LinkedIn</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center" data-tween="outro:fadeOut:.25">
+                <h6 data-tween="intro:fadeIn:.5:2" class="text-light">(Alternate title for this talk)</h6>
+                <h1 data-tween="intro:implode:1" class="text-light">Atomic CSS</h1>
+                <h5 data-tween="intro:bounceInUp:.5:1">Your Life Could Be Easier</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center italic pad-3-sides">
+                <blockquote>
+                    <p data-tween="intro:slideInLeft:.5:.52,outro:slideOutRight:.5" class="text-64 bold pad-3-sides">&ldquo;Naming CSS Stuff Is Really Hard&rdquo;</p>
+                    <cite data-tween="intro:fadeIn:.5:1,outro:fadeOut:.25">Ethan Muller <br/>Front End Developer at <a href="https://seesparkbox.com/">Sparkbox</a> <br/><a class="text-14" href="https://seesparkbox.com/foundry/naming_css_stuff_is_really_hard">Naming CSS Stuff Is Really Hard</a></cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-1200 grid">
+                <h2 data-tween="intro:fadeIn:.5,outro:fadeOut:.25" class="text-light pad-3-bottom text-center">At-A-Glance Understandability</h2>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3 text-center text-48">
+                        <div data-tween="intro:slideInUp:1:.5,intro:spinIn:1:.5,outro:slideOutDown:.5" class="rounded shadow pad-3 text-center">
+                            <code class="pad-3-bottom">&lt;div class="inner"&gt;</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3 text-center text-48">
+                        <div data-tween="intro:slideInUp:1:.75,intro:spinIn:1:.75,outro:slideOutDown:.5" class="rounded shadow pad-3 text-center">
+                            <code class="pad-3-bottom">&lt;div class="pad-2"&gt;</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 rel">
+            <div class="box-center text-center">
+                <h2 data-tween="intro:fadeIn:.5,0:slideOutUp:.25,0:hide:.25" class="text-light pad-3-bottom marg-2-bottom">We Have a Weight Problem</h2>
+                <figure class="pad-2-sides" data-tween="intro:hide,0:show:.26,0:slideInUp:.5:.27,outro:slideOutDown:.25">
+                    <img class="img-responsive" class="wide" src="images/weight.png" width="900" alt="Chart showing the very large page weights of various popular websites" />
+                    <blockquote class="pad-3-top marg-3-top">
+                        <p class="text-64 bold pad-3-sides">&ldquo;15kb of CSS is all you&rsquo;ll ever need.&rdquo;</p>
+                        <cite>Philip Ardeljan <br/><a class="text-14" href="https://medium.com/@philipardeljan/15kb-of-css-is-all-youll-ever-need-%EF%B8%8F-634da7258338#.me6klzitq">15kb of CSS is all you&rsquo;ll ever need.</a></cite>
+                    </blockquote>
+                </figure>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center">
+                <h2 class="text-light" data-tween="intro:fadeIn:.5">Too Much C in CSS</h2>
+                <h5 class="pad-3-top pad-2-bottom marg-1-sides" data-tween="intro:slideInVerticalChars:1:.5">Every time you write a style declaration, <br/>you create an exception to a default behavior.</h5>
+                <h5 class="pad-3-top pad-2-bottom" data-tween="0:slideInVerticalChars:1">Less cascade leads to flatter, simpler&nbsp;CSS.</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="wide grid pad-3-sides">
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3 s-marg-0-sides">
+                        <div data-tween="intro:spinIn:1,outro:slideOutLeft:.5,outro:fadeOut:.25" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Traditional CSS</h5>
+                            <h5 class="marg-3-bottom">The older your codebase is</h5>
+                            <h6 data-tween="intro:slideInLeft:.5:1,intro:fadeIn:.25:1.25">More levels of cascade.</h6>
+                            <h6 data-tween="0:slideInLeft:.5,0:fadeIn:.25:.25">Selectors get longer.</h6>
+                            <h6 data-tween="1:slideInLeft:.5,1:fadeIn:.25:.25">File sizes get bigger.</h6>
+                            <h6 data-tween="2:slideInLeft:.5,2:fadeIn:.25:.25">More complexity.</h6>
+                            <h6 data-tween="3:slideInLeft:.5,3:fadeIn:.25:.25">You will never stop writing CSS.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3 s-marg-0-sides">
+                        <div data-tween="4:spinIn:1,outro:slideOutRight:.5,outro:fadeOut:.25" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Atomic CSS</h5>
+                            <h5 class="marg-3-bottom">The older your codebase is</h5>
+                            <h6 data-tween="4:slideInLeft:.5,0:fadeIn:.25:.25">The less CSS you will write.</h6>
+                            <h6 data-tween="0:hide,5:show,5:slideInLeft:.5:.01,5:fadeIn:.25:.25">Possibly none at all.</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center" data-tween="outro:fadeOut:.25">
+                <h2 data-tween="intro:fadeIn:.5,intro:slideInUp:.5" class="text-light marg-3-bottom">Maintainability</h2>
+                <h5 data-tween="intro:implodeWords:1:.75" class="pad-3-sides">How do you know you have maintainable&nbsp;CSS?</h5>
+                <h5 data-tween="0:implodeWords:1">When you no longer need to write any.</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-1200 box-center grid grid-align-center" data-tween="outro:fadeOut:.25">
+                <h2 class="text-light text-center pad-3-sides" data-tween="intro:slideInUp:.5,intro:fadeIn:.5">Immutability is Essential</h2>
+                <div class="col-4 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:spinIn:.5:.5" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Never Do This</h5>
+                            <pre class="text-24"><code>.text-black { color:navy; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:spinIn:.5:1" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Instead Do This</h5>
+                            <pre class="text-24"><code>.text-navy { color:navy; }</code></pre>
+                            <img class="border marg-2" width="240" height="130" src="images/find-replace.png" alt="Global Find and Replace text-black with text-navy" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:spinIn:.5:2" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Or This</h5>
+                            <pre class="text-24"><code>.text-primary { color:navy; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center">
+                <h2 data-tween="intro:implode:1" class="text-light">Infinite Re-Usability</h2>
+                <h5 data-tween="intro:slideInLeftChars:.5:1" class="pad-3-top">Single purpose, immutable classes</h5>
+                <h5 data-tween="intro:fadeIn:.5:1.25" class="text-reg italic">lead to...</h5>
+                <h5 data-tween="intro:slideInRightChars:.5:1.5" class="pad-3-bottom">conflict-free, reliable composability.</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center">
+                <div class="box-center text-center italic pad-3-sides marg-3-vert">
+                    <blockquote>
+                        <p data-tween="intro:slideInLeft:.5:.51,outro:slideOutRight:.5" class="text-48 bold pad-3">&ldquo;Simple, obvious styles are quicker to internalize, <br/>easier to use, and more widely adopted.&rdquo;</p>
+                        <cite data-tween="intro:fadeIn:.5:.51,outro:fadeOut:.25">Brent Jackson<br/>
+                        <a data-tween="intro:fadeIn:.5:.51,outro:fadeOut:.25" class="text-14" href="http://basscss.com/v7/docs/reference/principles/">Basscss Design Principles</a></cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 marg-3-vert pad-3-vert">
+            <div data-tween="0:slideOutUp:.49,0:hide:.5" class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:fadeIn:.5" class="text-light">Design Consistency</h2>
+                <h5 data-tween="intro:fadeIn:.5:.5,intro:slideInUp:.5:.5" class="pad-3-top marg-3-sides">Force limitation on variations of spacing, typography, colors, etc.</h5>
+                <h5 data-tween="intro:fadeIn:.5:.75,intro:slideInUp:.5:.75" class="pad-2-bottom">Making a styleguide is helpful!</h5>
+            </div>
+            <div data-tween="intro:hide,0:showFlex:.5,1:hide:0.26" class="box-960 box-center grid marg-3 pad-3">
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.5,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-blue">.bgr-blue</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.6,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-blue-dk">.bgr-blue-dk</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.8,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-green">.bgr-green</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.6,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-green-dk">.bgr-green-dk</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.9,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-pink">.bgr-pink</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.85,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-purple">.bgr-purple</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:1,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-grey">.bgr-grey</code>
+                </div>
+                <div class="col-3 s-col-6 pad-half">
+                    <code data-tween="0:rotateIn:.5:.9,1:rotateOut:.25" class="wide pad-2 text-white text-24 bgr-red">.bgr-red</code>
+                </div>
+            </div>
+            <div data-tween="intro:hide,1:showFlex:.26,2:hide:0.26" class="grid box-720 box-center marg-3-vert pad-3-vert text-center">
+                <div class="col-3 s-col-12 s-marg-2-vert">
+                    <div data-tween="1:rotateIn:.5:.27,2:rotateOut:.25" class="box-center"><code class="wide pad-0 text-24 border border-dashed border-3">.pad-0</code></div>
+                </div>
+                <div class="col-3 s-col-12 s-marg-1-vert">
+                    <div data-tween="1:rotateIn:.5:.66,2:rotateOut:.25" class="box-center"><code class="wide pad-1 text-24 border border-dashed border-3">.pad-1</code></div>
+                </div>
+                <div class="col-3 s-col-12 s-marg-3-vert">
+                    <div data-tween="1:rotateIn:.5:.5,2:rotateOut:.25" class="box-center"><code class="wide pad-2 text-24 border border-dashed border-3">.pad-2</code></div>
+                </div>
+                <div class="col-3 s-col-12 s-marg-3-vert">
+                    <div data-tween="1:rotateIn:.5:.33,2:rotateOut:.25" class="box-center"><code class="wide pad-3 text-24 border border-dashed border-3">.pad-3</code></div>
+                </div>
+            </div>
+            
+            <div data-tween="intro:hide,2:showFlex:.26" class="grid marg-3-vert pad-3-vert text-center">
+                <div class="col-12" data-tween="2:scaleIn:1.5:.26"><code class="text-120 wide">h1, .text-120</code></div>
+                <div class="col-12" data-tween="2:scaleIn:1.25:.26"><code class="text-96 wide">h2, .text-96</code></div>
+                <div class="col-12" data-tween="2:scaleIn:1:.26"><code class="text-64 wide">h3, .text-64</code></div>
+                <div class="col-12" data-tween="2:scaleIn:.75:.26"><code class="text-48 wide">h4, .text-48</code></div>
+                <div class="col-12" data-tween="2:scaleIn:.5:.26"><code class="text-36 wide">h5, .text-36</code></div>
+                <div class="col-12" data-tween="2:scaleIn:.375:.26"><code class="text-24 wide">h6, .text-24</code></div>
+                <div class="col-12" data-tween="2:scaleIn:.25:.26"><code class="text-18 wide">body, .text-18</code></div>
+                <div class="col-12" data-tween="2:scaleIn:.15:.26"><code class="text-14 wide">small, .text-14</code></div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center box-1200 pad-2-sides">
+                <h2 data-tween="intro:fadeIn:.5:outro:fadeOut:.25" class="text-light">Experimentation</h2>
+                <h5 data-tween="intro:fadeInChars:3:.25:outro:fadeOut:.25" class="box-720 box-center pad-3-vert marg-3-bottom">Apply and remove styles on a web page like a painter working on a canvas</h5>
+                <img class="img-responsive" data-tween="intro:fadeIn:3:1:outro:fadeOut:.25" class="border" src="images/expressive-css-animation.gif" width="960" height="291" alt="Animation of applying and removing Functional CSS classes">
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center box-1100 pad-3 marg-3-vert s-marg-0">
+                <h2 data-tween="intro:fadeIn:.5,outro:slideOutLeft:.25" class="text-light">Productivity Boost</h2>
+                <blockquote class="pad-3-vert" data-tween="0:hide:0:.26">
+                    <p data-tween="intro:slideInLeft:.5:.52,0:slideOutRight:.25" class="text-36 bold pad-3-vert">&ldquo;Working with functional CSS, you’re spending 99% of your time in HTML. Your productivity is incredibly high because your brain doesn&rsquo;t need to context switch between markup and stylesheet.&rdquo;</p>
+                    <div data-tween="intro:fadeIn:.5:.75,0:fadeOut:.25">
+                        <cite>Simon Vrachliotis <br/>
+                        <a class="text-14" href="https://medium.com/@simonswiss/full-re-write-in-10-days-with-tachyons-and-functional-css-a-case-study-part-4-b565745ca1e5#.zdabis49z">Full re-write in 10 days with tachyons and functional CSS: A case study</a></cite>
+                    </div>
+                </blockquote>
+                <blockquote class="pad-3-vert" data-tween="intro:hide,0:show:0:.26">
+                    <p data-tween="0:slideInLeft:.5:.26,outro:slideOutRight:.25" class="text-36 bold pad-3-vert">&ldquo;Small tweaks like margin can be adjusted with a single class change in your HTML. It allows you to fix bugs without writing any additional CSS. I can&rsquo;t even tell you how amazing this feels.&rdquo;</p>
+                    <div data-tween="0:fadeIn:.5:.75,outro:fadeOut:.25">
+                        <cite>Marcelo Somers <br/>
+                        <a class="text-14" href="https://marcelosomers.com/writing/rationalizing-functional-css/">Rationalizing Functional CSS</a></cite>
+                    </div>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-1200 grid">
+                <div data-tween="intro:fadeIn:.5" class="col-12">
+                    <h4 class="wide text-reg text-center marg-3-bottom">I think of it like this...</h4>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3">
+                        <div data-tween="intro:swingIn:3:.5" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Writing CSS is...</h5>
+                            <h4>Planning <br/>to build things</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3">
+                        <div data-tween="intro:swingIn:3:1.5" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">Writing HTML is...</h5>
+                            <h4>Building <br/>the things</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center box-1200 marg-3-top pad-3-top">
+                <h2 data-tween="intro:spinIn:1" class="text-light">Portability</h2>
+                <h5 data-tween="intro:implodeWords:.5:1" class="pad-3-top">Set custom spacing, typography, colors <br/>and breakpoints for each new project.</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center box-1200">
+                <h2 data-tween="intro:implodeWords:.5" class="text-light marg-3-top pad-3-top">Case In Point</h2>
+                <h5 data-tween="intro:bounceInUp:.5:.5" class="marg-2-bottom">Zero new classes* were written in the making of this preso</h5>
+                <h5 data-tween="intro:bounceInUp:.5:.75" class="marg-2-bottom">CSS generated via SASS config**</h5>
+                <p data-tween="remove" class="marg-3-top pad-3-top italic text-grey pad-2-sides">* Except for that pulsing button at the top. That was&nbsp;pretty&nbsp;cool.</p>
+                <p data-tween="intro:bounceInUp:.5:1" class="italic text-grey pad-2-sides">*<span data-tween="remove">*</span> Built with the <a href="https://johnpolacek.github.io/expressive-css-starter-kit/">Expressive CSS Starter Kit</a> and <a href="https://github.com/johnpolacek/simple-flexgrid">Simple&nbsp;Flex&nbsp;Grid</a></p>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center box-1200 marg-3-top pad-3-top">
+                <h2 data-tween="intro:fadeIn:.5,outro:slideOutUp:.5" class="text-light">Not Just About File Size</h2>
+                <h5 data-tween="intro:fadeIn:.5:.5,0:slideOutDown:.5,0:hide:.5" class="pad-3-top">It&rsquo;s about file size <em class="inline pad-1-right" data-tween="intro:zoomIn:.5:1,intro:cssTo:0:1.5:border-bottom:solid 1px #666">over </em><em class="inline" data-tween="intro:zoomIn:.5:1.5,intro:cssTo:0:1.5:border-bottom:solid 1px #666">time</em><span data-tween="intro:fadeIn:.25:1.5">.</span></h5>
+                <h5 data-tween="intro:hide,0:show:.5,0:fadeIn:.5:.5,outro:slideOutDown:.5" class="pad-3-top">It&rsquo;s about CSS <em class="inline pad-1-right" data-tween="0:zoomIn:.5:1,intro:cssTo:0:1.5:border-bottom:solid 1px #666">complexity</em><em class="inline pad-1-right" data-tween="0:zoomIn:.5:1.25,intro:cssTo:0:1.5:border-bottom:solid 1px #666"> at </em><em class="inline pad-1-right" data-tween="0:zoomIn:.5:1.5,intro:cssTo:0:1.5:border-bottom:solid 1px #666">scale</em></span></h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center box-1200 pad-3-top pad-2-sides">
+                <h2 data-tween="intro:implode:1,0:fadeOut:.49,0:hide:.5" class="text-light">My Experience</h2>
+                <h5 data-tween="intro:implode:1,0:fadeOut:.49,0:hide:.5" class="pad-3-vert marg-3-bottom">The evolution of my company&rsquo;s CSS architecture</h5>
+                <div data-tween="intro:hide,0:show:.5,1:hide:.5">
+                    <p data-tween="0:rotateIn:.5:.5,1:fadeOut:.5" class="pad-3-top italic">A few days before I started</p>
+                    <div data-tween="0:rotateIn:.5:.5,1:fadeOut:.5,1:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2013–07–23</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">575</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">702</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">444MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>109.4k</div><div class="wide pad-2-left italic text-18 text-reg">(41 CSS files)</div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-tween="intro:hide,1:show:.5,2:hide:.5">
+                    <p data-tween="1:rotateIn:.5:.5,2:fadeOut:.5" class="pad-3-top italic">My first task: implement responsive web design</p>
+                    <div data-tween="1:rotateIn:.5:.5,2:fadeOut:.5,2:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2013–09–03</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">925</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">743</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">465MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>123.1k</div><div class="wide pad-2-left italic text-18 text-reg">(41 CSS files)</div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-tween="intro:hide,2:show:.5,3:hide:.5">
+                    <p data-tween="2:rotateIn:.5:.5,3:fadeOut:.5" class="pad-3-top italic">Next task: Combine 41 stylesheets into 1</p>
+                    <div data-tween="2:rotateIn:.5:.5,3:fadeOut:.5,3:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2013–09–07</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">1500</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">813</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">467MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>105.6k</div><div class="wide pad-2-left italic text-18 text-reg">(1 CSS file)</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-tween="intro:hide,3:show:.5,4:hide:.5">
+                    <p data-tween="3:rotateIn:.5:.5,4:fadeOut:.5" class="pad-3-top italic">One year later...</p>
+                    <div data-tween="3:rotateIn:.5:.5,4:fadeOut:.5,4:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2014–09–15</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">4812</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">1088</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">481MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>151.2k</div><div class="wide pad-2-left italic text-18 text-reg">(1 CSS file)</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-tween="intro:hide,4:show:.5,5:fadeOut:.5,5:hide:.5" class="wide pad-3-vert marg-3-vert">
+                    <h3 data-tween="4:fadeIn:.5:.5" class="text-light marg-3-vert">Using Traditional CSS</h3>
+                    <div data-tween="5:fadeOut:.5,5:slideOutDown:1" class="box-800 box-center grid bold marg-3-bottom">
+                        <div class="col-6">
+                            <div data-tween="4:spinIn:1:.5,4:elasticInScale:1:.5" class="wide text-120">43%</div><div class="wide text-36">growth of CSS size</div>
+                        </div>
+                        <div class="col-6">
+                            <div data-tween="4:spinIn:1:1,4:elasticInScale:1:1" class="wide text-120">3%</div><div class="wide text-36">growth of repo size</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-tween="intro:hide,5:show:.5,6:fadeOut:.5,6:hide:.5">
+                    <p data-tween="5:rotateIn:.5:.5,6:fadeOut:.5" class="pad-3-top italic">Continued growth...</p>
+                    <div data-tween="5:rotateIn:.5:.5,6:fadeOut:.5,6:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2015–05–06</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">7,726</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">1,373</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">485MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>183.2k</div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-tween="intro:hide,6:show:.5,7:fadeOut:.5,7:hide:.5">
+                    <p data-tween="6:rotateIn:.5:.5,7:fadeOut:.5" class="pad-3-top italic">First optimization attempt <br/><span class="text-14">(removed unused styles, separate admin stylesheet)</span></p>
+                    <div data-tween="6:rotateIn:.5:.5,7:fadeOut:.5,7:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2015–10–09</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">9,692</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">1,505</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">487MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>116.8k</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-tween="intro:hide,7:show:.5">
+                    <p data-tween="7:rotateIn:.5:.5,outro:fadeOut:.25" class="pad-3-top italic">Refactor to Functional CSS</p>
+                    <div data-tween="7:rotateIn:.5:.5,outro:fadeOut:.25,outro:slideOutDown:1" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                        <h6 class="border-bottom marg-2-bottom italic text-light">2015–10–18</h6>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">9,830</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">1,508</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                            <div class="col-7 pad-2 text-left text-24 bold">491MB</div>
+                        </div>
+                        <div class="grid grid-align-middle">
+                            <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                            <div class="col-7 pad-2 text-left text-64 bold"><div>81.3k</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:scaleOut:.5" class="box-center text-center">
+                <h2 data-tween="intro:fadeIn:.5" class="text-light">Initial Results</h2>
+                <h2 data-tween="intro:elasticInScale:1:.5" class="pad-3-top pad-2-bottom">30% reduction in CSS</h2>
+                <h5 data-tween="intro:fadeIn:1:1.5" class="pad-3-top pad-2-bottom">Could have reduced further, but kept some legacy styles</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="wide text-center pad-3-bottom marg-3-bottom" data-tween="outro:scaleOut:.5,0:hide:.5">
+                <h2 data-tween="intro:rotateIn:.5:.5,0:fadeOut:.5" class="text-light pad-3-bottom marg-3-bottom">A year and a half later...</h2>
+            </div>
+            <div class="wide pad-2-sides" data-tween="intro:hide,0:show:.5,1:hide:.5">
+                <div data-tween="0:rotateIn:.5:.5,1:fadeOut:.5,1:slideOutDown:1,1:hide:.5" class="box-640 box-center pad-3 marg-3-bottom rounded shadow text-center">
+                    <h6 class="border-bottom marg-2-bottom italic text-light">2017–05–29</h6>
+                    <div class="grid grid-align-middle">
+                        <div class="col-5 pad-2 grid-align-right text-grey"># of Commits</div>
+                        <div class="col-7 pad-2 text-left text-24 bold">20,257</div>
+                    </div>
+                    <div class="grid grid-align-middle">
+                        <div class="col-5 pad-2 grid-align-right text-grey">Test Suite</div>
+                        <div class="col-7 pad-2 text-left text-24 bold">2,046</div>
+                    </div>
+                    <div class="grid grid-align-middle">
+                        <div class="col-5 pad-2 grid-align-right text-grey">Repo Size</div>
+                        <div class="col-7 pad-2 text-left text-24 bold">593MB</div>
+                    </div>
+                    <div class="grid grid-align-middle">
+                        <div class="col-5 pad-2 grid-align-right text-grey">CSS Size</div>
+                        <div class="col-7 pad-2 text-left text-64 bold"><div>72.7k</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="wide" data-tween="intro:hide,1:show:.5">
+                <h2 data-tween="1:elasticInScale:1:.5" class="wide text-center pad-3-top marg-3-top">10% smaller yet</h2>
+                <h6 data-tween="1:fadeIn:1:1" class="wide text-center marg-3-bottom">(as we phase out legacy CSS)</h6>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white pad-3-top grid-align-middle grid-align-center col-12 row-12">
+            <div>
+                <h2 data-tween="intro:implode:.5" class="wide text-center text-light pad-0 marg-3-vert pad-3-bottom">For example...</h2>
+                <div class="wide">
+                    <div class="box-960 grid box-center marg-3-top text-center">
+                        <div class="col-4 s-col-12 grid-align-middle">
+                            <div class="wide">
+                                <h5 data-tween="intro:bounceInUp:.5:1" class="wide text-center text-light marg-3-bottom">New Feature</h5>
+                                <h5 data-tween="intro:bounceInUp:.5:1.25" class="wide text-center text-light marg-3-bottom">New View</h5>
+                                <h5 data-tween="intro:bounceInUp:.5:1.5" class="wide text-center text-light marg-3-bottom">New UI</h5>
+                                <h5 data-tween="intro:bounceInUp:.5:2.5" class="wide text-center bold marg-3-bottom">Zero New CSS</h5>
+                            </div>
+                        </div>
+                        <div class="col-8 s-col-12 pad-3-left s-pad-2-sides">
+                            <div data-tween="intro:slideInRight:.5:.5">
+                                <img class="border img-responsive" width="640" height="378" src="images/seatmanagement.gif" alt="Video clip of seating management tool" />  
+                            </div>
+                        </div>                 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white pad-3-top text-center">
+            <div class="wide pad-2-sides">
+                <h2 data-tween="intro:scaleInWords:1,outro:scaleOut:.25" class="wide text-center text-light pad-0 marg-3-vert text-48">A Year and a Half with Atomic&nbsp;CSS</h2>
+                <img class="img-responsive" data-tween="intro:scaleIn:.5:1,outro:slideOutDown:.25" src="images/gesture-css-file-size-over-time-atomic-css.png" width="960" height="506" alt="Gesture CSS File Size Over Time">
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white pad-3-top text-center">
+            <div class="wide pad-2-sides">
+                <h2 data-tween="intro:fadeIn:.5,outro:fadeOut:.25" class="wide text-center text-light pad-0 marg-3-vert">To Open Source, <br/>or Not to Open Source?</h2>
+                <h5 data-tween="intro:slideInLeftChars:.5:.5,outro:fadeOut:.25" class="wide pad-3-top">I abstracted the work into a library called Expressive CSS.</h5>
+                <h3 data-tween="intro:slideInRightChars:.5:1,outro:fadeOut:.25" class="wide">Then I sat on it for weeks.</h3>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white pad-3-top text-center">
+            <div class="wide pad-2-sides" data-tween="outro:fadeOut:.25">
+                <h3 data-tween="intro:scaleInChars:.5" class="wide pad-3-bottom">Then I read this.</h3>
+                <figure data-tween="intro:spinIn:.5:.5" class="wide">
+                    <a href="https://medium.com/@cole_peters/building-and-shipping-functional-css-4f29b947bcb9#.85vdyasti">
+                        <img class="marg-1-top border img-responsive" width="720" height="496" src="images/building-and-shipping-functional-css.png" alt="Building and Shipping Functional CSS Article" >
+                    </a>
+                    <figcaption class="marg-2-top text-14 italic"><a href="https://medium.com/@cole_peters/building-and-shipping-functional-css-4f29b947bcb9#.85vdyasti">Building and Shipping Functional CSS Article</a></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white pad-3-top text-center">
+            <div class="wide pad-2-sides" data-tween="outro:fadeOut:.25">
+                <h3 data-tween="intro:scaleInChars:.5" class="wide pad-3-bottom">So I shipped this.</h3>
+                <figure data-tween="intro:spinIn:.5:.5" class="wide">
+                    <a href="http://johnpolacek.github.io/expressive-css/">
+                        <img class="marg-1-top border img-responsive" width="720" height="347" src="images/expressive-css.png" alt="Expressive CSS Github Project Page" >
+                    </a>
+                    <figcaption data-tween="intro:fadeIn:.5:1" class="marg-2-top text-14 italic"><a href="http://johnpolacek.github.io/expressive-css/">Expressive CSS Project Page</a></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white pad-3-top text-center">
+            <div class="wide" data-tween="outro:fadeOut:.25">
+                <h3 data-tween="intro:scaleInChars:.5" class="wide pad-3-bottom">Then people said this.</h3>
+                <figure data-tween="intro:spinIn:.5:.5" class="wide">
+                    <img class="img-responsive" src="images/comment-whats-this.png" alt="Mattia says: What's this shit. You write CSS like 5 years ago." width="720" height="310" />
+                    <figcaption data-tween="intro:fadeIn:.5:1" class="marg-3-top text-14 italic">Comment from <br/><a href="http://johnpolacek.com/content-display-patterns/">Content & Display Patterns with Expressive CSS</a></figcaption>                
+                </figure>                
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center marg-3-bottom">
+                <h2 data-tween="intro:implode:.5,outro:fadeOut:.25" class="text-light marg-3-bottom pad-3-sides">Why is Atomic CSS controversial?</h2>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:slideInUp:.5,0:slideOutLeft:.5,0:hide:.5" class="text-light marg-3-vert">Ugly HTML?</h2>
+                <img class="img-responsive" data-tween="intro:hide,0:show:.5,0:slideInRight:.5:.5" src="images/comment-pollute-html.png" alt="Glauber Ramos says: I am worried as well if this approach wont pollute too much the HTML, every div will have like 7 or more classes with unreadable names. Philip Ardeljan replies: It&rsquo;s funny because since using functional CSS, my code has never been more readable. Before I would struggle to remember what styles .card-primary would have. So I&rsquo;d have to load up the stylesheet/inspect the element in dev tools and read through the styles. Now I don&rsquo;t have that problem." width="960" />
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="0:slideOutUp:.5,0:hide:.5" class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:fadeIn:.5" class="text-light marg-3-vert">HTML Bloat?</h2>
+                <img class="img-responsive" data-tween="intro:slideInUp:.5:.5" src="images/comment-bloat.png" alt="Chris Ferdinandi I’m not sure I see how having 10 different classes on a single element in your markup is any different than having just one and being overly specific in you CSS. You're simply moving the bloat from one place (your stylesheet) to another (your markup)." width="960" />
+            </div>
+            <blockquote data-tween="intro:hide,0:show:.5,0:slideInUp:.5:.5,1:slideOutUp:.5,1:hide:.5" class="box-1200 box-center text-center pad-sides">
+                <p class="text-48 text bold pad-3">&ldquo;If we put Gzip into the picture, things look even better. That&rsquo;s because a lot of repetitions means a better compression ratio.&rdquo;</p>
+                <cite class="text-18 text-reg italic"><a href="https://acss.io/frequently-asked-questions.html">Atomic CSS FAQ</a></cite>
+            </blockquote>
+             <blockquote data-tween="intro:hide,1:show:.5,1:slideInUp:.5:.5" class="box-1100 box-center text-center">
+                <p class="text-48 text bold pad-3">&ldquo;HTML is much less difficult to reason about than layers of CSS inheritance.&rdquo;</p>
+                <cite class="text-18 text-reg italic">Sean Washington <br/><a href="https://medium.com/@seanwash/css-is-hard-thoughts-on-managing-the-cascade-395b02f54bd5#.d47cflwi5">CSS is hard — Thoughts on managing the cascade
+</a></cite>
+            </blockquote>
+            
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:slideInVerticalChars:1" class="text-light marg-3-vert">A Trade-Off</h2>
+                <h5>
+                    <span data-tween="intro:slideInLeft:.5">Less classes in stylesheets.</span>
+                    <br/>
+                    <span data-tween="intro:slideInRight:.5">More classes in HTML.</span>
+                </h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center marg-3-top">
+                <div data-tween="outro:fadeOut:.25" class="pad-3-vert marg-3-vert">
+                    <h2 data-tween="intro:scaleInChars:.5" class="text-light marg-3-bottom">How is this different <br/>from inline styles?</h2>
+                    <img class="img-responsive" data-tween="intro:fadeIn:.5:.5" src="images/comment-inline-styles.png" alt="Joey D. Smith says: why not just use a style attribute if you're going to do this? Phil Wolstenholme replies: For one thing, inline CSS has a huge specificity whereas utility classes don't." width="1100" height="274" />
+                </div>
+            </div>
+        </section>
+        
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="col-12 row-3 grid-align-center grid-align-middle text-center">
+                <p data-tween="intro:fadeIn:.5" class="italic">Excerpts from <br/><a href="https://github.com/tachyons-css/tachyons/issues/12">How is tachyons different from inline styles?</a></p>
+            </div>
+            <div class="col-12 row-9">
+                <div class="box-center text-center pad-3 marg-3-top">
+                    <blockquote data-tween="intro:slideInLeft:.5,0:slideOutRight:.25,0:hide:.25" class="marg-3-vert">
+                        <p class="text-48 bold pad-3-top">&ldquo;The most important difference is specificity. <br/>Inline styles trump classes.&rdquo;</p>
+                        <cite data-tween="intro:fadeIn:.25:.5,outro:fadeOut:.25" class="text-18 text-reg italic">Mark Otto <br/><span class="text-14">Creator of <a href="http://getbootstrap.com/">Bootstrap</a></span></cite>
+                    </blockquote>
+
+                    <blockquote data-tween="intro:hide,0:show:.25" class="marg-3-bottom">
+                        <h4 data-tween="0:slideInLeft:.5:.25,1:slideOutRight:.25,1:hide:.25"  class="box-960 box-center pad-3 marg-3-vert">&ldquo;Inline styles do not support media queries or pseudo elements.&rdquo;</h4>
+                        <h4 data-tween="intro:hide,1:show:.25,1:slideInLeft:.5:.25,2:slideOutRight:.25,2:hide:.25" class="pad-3 marg-3-vert">&ldquo;Inline styles are 1 to 1 for the browser. <br/>While a class has a 1 to many relationship.&rdquo;</h4>
+                        <h4 data-tween="intro:hide,2:show:.25,2:slideInLeft:.5:.25,outro:slideOutRight:.25" class="marg-3-top pad-3-top">&ldquo;In the world of inline styles, <br/>I have to memorize padding and margin values. <br/>A codified system can have named sizes like S, M, L.</h4>
+                        <cite data-tween="2:fadeIn:.5:.25,outro:fadeOut:.25" class="text-18 text-reg italic">Adam Morse <br/><span class="text-14">Creator of <a href="http://tachyons.io/">Tachyons CSS</a></span></cite>
+                    </blockquote>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center marg-3-top pad-3-top">
+                <div class="col-12 row-3 grid-align-center grid-align-middle text-center">
+                    <p data-tween="intro:fadeIn:.5" class="italic">Excerpts from <br/><a href="http://danmall.me/articles/cooking-with-design-systems/">Cooking with Design Systems</a></p>
+                </div>
+
+                <div class="col-12 row-9">
+                    <blockquote class="marg-3-bottom">
+                        <h4 data-tween="intro:slideInLeft:.5,0:slideOutRight:.25,0:hide:.25" class="box-1100 box-center pad-3-vert">&ldquo;If you&rsquo;re using class names instead of inline styles, you won&rsquo;t ever have a situation where one headline has 16px padding and another has 17px. You&rsquo;re using your design system!&rdquo;</h4>
+                        <h4 data-tween="intro:hide,0:show:.25,0:slideInLeft:.5:.25,outro:slideOutRight:.25" class="box-960 box-center pad-3-vert marg-3-vert">&ldquo;Using your already established conventions through class names gives you a beneficial constraint.&rdquo;</h4>
+                        <cite data-tween="0:fadeIn:.5:.25" class="text-18 text-reg italic">Dan Mall <br/><span class="text-14">Founder and Director of <a href="http://superfriend.ly/">SuperFriendly</a> <br/>Creative Director at <a href="https://studio.zeldman.com/about/dan-mall/">Studio Zeldman</a></span></cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12 pad-3-bottom">
+            <div class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:slideInDown:.5,intro:fadeIn:.5,0:fadeOut:.25,0:hide:.25" class="text-light marg-3-vert">What about a redesign?</h2>
+                <img class="img-responsive" data-tween="intro:slideInUp:.5:.5,0:fadeOut:.25,0:hide:.25" src="images/comment-redesign.png" alt="Dan Jones says: The problem with this approach, as I see it, comes when you decide to redesign your site. You've got all these CSS references that refer to particular styles that may no longer be relevant at all. So, now you have to go into your markup, and change all your classes to work with your new design." width="1100" />
+            </div>
+            <blockquote data-tween="intro:hide,0:show:.25,0:slideInLeft:.5:.25,outro:slideOutRight:.25" class="box-1200 box-center text-center pad-3-vert">
+                <p class="text-48 text bold pad-3">&ldquo;The theory that an entire site can or should be redesigned by just changing the CSS isn&rsquo;t practical and doesn&rsquo;t reflect how real designers and developers approach new projects.&rdquo;</p>
+                <cite data-tween="0:fadeIn:.5:.5" class="text-18 text-reg italic">Philip Walton <br/><a class="text-14" href="https://tympanus.net/codrops/2013/01/22/defending-presentational-class-names/#comments">&ldquo;Defending Presentational Class Names&rdquo;</a> </cite>
+            </blockquote>
+            <p data-tween="0:fadeIn:.5:1" class="text-48 pad-3 marg-3 italic text-light">( e.g., There are 4 versions of Bootstrap )</p>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:slideInUpCharsElastic:1" class="text-light marg-3-vert">Bye Bye Cascade</h2>
+                <img class="img-responsive" data-tween="intro:fadeIn:.5:1,0:scaleOut:.5,0:hide:.5" src="images/comment-cascade.png" alt="Jack says: Fascinating thoughts on functional CSS although not sure I 100% agree with rejecting the cascade" width="800" height="242" />
+                <div data-tween="intro:hide,0:show:.5,0:scaleIn:.5:.5">
+                    <h4 class="pad-3 marg-3-top text-reg">Another trade off.</h4>
+                    <h5 class="text-reg">More cascade means more complexity. <br/>Atomic CSS favors simplicity.</h5>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="0:hide:.25" class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:fadeInBlur:1,0:slideOutUp:.25" class="text-light marg-3-top">How about Accessibility?</h2>
+                <img class="img-responsive" data-tween="intro:bounceInUp:.5:1,0:slideOutDown:.25,0:hide:.25" class="marg-3-top" src="images/comment-accessibility.png" alt="Mike Donahue says: I&rsquo;ve always considered how someone that can't view my site will hear it. Class names like .address or .name or .date (overly simplified for illustration purposes) will mean more to someone using a screen reader than .span-6 or most other presentational classes." width="960" height="336" />
+            </div>
+            <div data-tween="intro:hide,0:show:.25,outro:slideOutDown:.25" class="box-center text-center marg-3-bottom pad-3-bottom">
+                <h5 data-tween="0:bounceInUp:.5:.25,3:fadeOut:.25,3:hide:.25" class="text-reg">Assistive devices ignore class names.</h5>
+                <h5 data-tween="1:bounceInUp:.5,3:fadeOut:.25,3:hide:.25" class="text-reg">Browsers do not care what your classes are named.</h5>
+                <h5 data-tween="2:bounceInUp:.5,3:fadeOut:.25,3:hide:.25" class="text-reg">Users do not care what your classes are named.</h5>
+                <h5 data-tween="3:bounceInUp:.5:.25" class="marg-3-vert pad-3-top text-center text-reg">The only people who do care are... <br/><span data-tween="3:bounceInUp:.5:.75" class="text-96 bold">other developers!</span></h5>
+            </div>
+        </section>
+ 
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center marg-3-vert pad-3-vert">
+                <h2 data-tween="intro:implode:1,0:explode:.5,0:hide:.5" class="text-light marg-3-vert">What about Semantics?</h2>
+                <div data-tween="intro:hide,0:show:.5,0:spinIn:.5:.5,1:slideOutLeft:.5,1:hide:.5" class="text-center">
+                    <img class="img-responsive" src="images/zeldman.svg" alt="Jeffrey Zeldman Vector Portrait" width="360" height="225" />
+                </div>
+                <blockquote data-tween="intro:hide,0:show:.5,0:fadeIn:.5:1.5,1:hide:.5">
+                    <p data-tween="1:slideOutRight:.5" class="text-36 bold pad-3">&ldquo;SORRY. I disagree. <br/>Nonsemantic classnames that refer to <br/>visual styles will always be a bad idea.&rdquo;</p>
+                    <cite data-tween="1:fadeOut:.5" class="text-18 text-reg italic">Jeffrey Zeldman <br/>Web Pioneer<br/><a href="http://www.zeldman.com/2017/01/03/kiss-my-classname/">Kiss My Classname</a></cite>
+                </blockquote>
+
+                <blockquote data-tween="intro:hide,1:show:.5,3:fadeOut:.5,3:hide:.5" class="box-1200 box-center pad-3-vert text-center">
+                    <h4 data-tween="1:slideInLeft:.5:.5,2:slideOutUp:.5,2:hide:.5" class="pad-3">&ldquo;For individuals weaned on an ideology where &lsquo;Semantic HTML&rsquo; means using content-derived class names, it usually requires you to work on a large application before you become aware of the impractical nature of that approach.&rdquo;</h4>
+                    <h4 data-tween="intro:hide,2:show:.5,2:implodeWords:.5:.5" class="pad-3">&ldquo;You have to be prepared to disgard old ideas, look at alternatives, and even revisit ways that you may have previously dismissed.&rdquo;</h4>
+                    <cite data-tween="1:fadeIn:.5:1" class="text-18 text-reg italic">Nicolas Gallagher <br/><a href="http://nicolasgallagher.com/about-html-semantics-front-end-architecture/">About HTML semantics and front-end architecture</a><br/><span class="text-14 text-grey">March 15, 2012</span></cite>
+                </blockquote>
+
+                <blockquote data-tween="intro:hide,3:show:.5,4:fadeOut:.5,4:hide:.5" class="box-1200 box-center pad-3-vert text-center">
+                    <h4 data-tween="3:slideInLeft:.5:.5" class="pad-3">&ldquo;If you use templates, then giving a meaningful name to the file should be enough. In my opinion, limiting yourself to style things through semantic class names is counter-productive.&rdquo;</h4>
+                    <cite data-tween="3:fadeIn:.5:1" class="text-18 text-reg italic">Thierry Koblentz <br/><a href="https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/">Challenging CSS Best Practices</a><br/><span class="text-14 text-grey">October 21, 2013</span></cite>
+                    <p data-tween="3:fadeIn:.5:1.5" class="text-14 pad-3-top text-grey">See also <a href="http://cssmojo.com/opinions_of_leaders_considered_harmful/">Opinions of Leaders Considered Harmful</a></p>
+                </blockquote>
+
+                <blockquote data-tween="intro:hide,4:show:.5,outro:fadeOut:.25" class="box-1200 box-center pad-3-vert text-center">
+                    <h4 data-tween="4:slideInLeft:.5:.5" class="pad-3-sides box-960 box-center">&ldquo;We have tags and attributes (ARIA,&nbsp;etc.) to describe content.&rdquo;</h4>
+                    <h4 data-tween="4:fadeIn:.5:1" class="pad-3-sides box-960 box-center">&ldquo;Our philosophy is that visual styling should be decoupled from content.&rdquo;</h4>
+                    <cite data-tween="4:fadeIn:.5:1.5" class="text-18 text-reg italic">John Polacek <br/><a href="https://medium.com/@johnpolacek/kiss-my-classname-a-counterpoint-3ca41f0aed1a#.jq24ep3hz">Kiss My Classname: A Counterpoint</a></cite>
+                </blockquote>
+            </div>            
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-center text-center marg-3-vert pad-3-vert">
+                <div class="box-800 box-center">
+                    <h2 data-tween="intro:fadeIn:1,outro:explode:.5" class="text-light marg-3-bottom text-64">Some People Really Really Just Do Not Like It</h2>
+                    <img class="img-responsive" data-tween="intro:fadeIn:1:.5,outro:slideOutDown:.5" width="640" height="300" src="images/problem-with-atomic-css.png" alt="The Problem With Atomic CSS">
+                    <p data-tween="intro:bounceInUp:1:1.5,outro:slideOutDown:.5" class="pad-1 italic text-grey">(Fun Fact: <a href="https://medium.engineering/simple-style-sheets-c3b588867899">Medium</a> is built with Atomic CSS)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center marg-3-bottom pad-3-vert">
+                <div class="box-960 box-center">
+                    <h3 data-tween="intro:implode:1" class="text-light marg-3-vert text-64">Maybe try for yourself, then&nbsp;decide</h3>
+                    <img class="img-responsive" data-tween="intro:spinIn:1:.5" class="border" width="640" height="201" src="images/tweet-reading-about-atomic.png" alt="Anthony Chilelli tweets: Reading about atomic made me apprehensive, using atomic made me wish I knew about it earlier.">
+                    <h5 data-tween="intro:bounceInUp:1:2" class="marg-3-top pad-3">Bonus points for writing about your experience!</h5>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="col-12 row-5 grid-align-middle grid-align-center">
+                    <h3 data-tween="intro:fadeIn:1" class="text-light pad-3-top">Where is Atomic CSS <br/>Used in the Real World?</h3>
+                </div>
+                <div class="col-12 row-7 pad-3-bottom">
+                    <div data-tween="0:fadeOut:.5,0:hide:.5" class="grid box-1200 box-center marg-2-vert pad-2-bottom">
+                        <div class="col-4 s-col-12 grid pad-2-sides s-marg-3-bottom">
+                            <div class="wide grid">
+                                <div data-tween="intro:spinIn:1" class="wide pad-3 text-center rounded shadow">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="https://acss.io">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">ACSS.io</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>Atomic CSS on Steroids</h6>
+                                    <h6>Developed at Yahoo</h6>
+                                    <h6>Configure with Atomizer</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 s-col-12 grid pad-2-sides s-marg-3-bottom">
+                            <div class="wide grid">
+                                <div data-tween="intro:spinIn:1.25" class="wide pad-3 text-center rounded shadow">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="http://tachyons.io/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Tachyons</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>Very Popular</h6>
+                                    <h6>Extensive Components Library</h6>
+                                    <h6>Configure with PostCSS</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 s-col-12 grid pad-2-sides">
+                            <div class="wide grid">
+                                <div data-tween="intro:spinIn:1.5" class="wide pad-3 text-center rounded shadow">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="http://basscss.com/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Basscss</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>Influential, Widely Used</h6>
+                                    <h6>Configure with PostCSS</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-tween="intro:hide,0:showFlex:.5,1:fadeOut:.5,1:hide:.5" class="grid box-1200 box-center marg-2-vert pad-2-bottom">
+                        <div class="col-3 s-col-12 grid pad-2-sides">
+                            <div class="wide grid">
+                                <div data-tween="0:spinIn:1.5:.5" class="wide pad-3 text-center rounded shadow s-marg-3-bottom">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="http://solid.buzzfeed.com/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Solid</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>From the Team <br/>at <a href="https://medium.com/buzzfeed-design/introducing-solid-1c16b1bf4868#.n1vx4eunc">Buzzfeed</a></h6>
+                                    <h6>Configure with SASS</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 s-col-12 grid pad-2-sides">
+                            <div class="wide grid">
+                                <div data-tween="0:spinIn:1.5:.75" class="wide pad-3 text-center rounded shadow s-marg-3-bottom">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="http://tedconf.github.io/shed-css/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Shed</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>From the Team <br/>at <a href="http://tedconf.github.io/">TED</a></h6>
+                                    <h6>Configure with PostCSS</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 s-col-12 grid pad-2-sides">
+                            <div class="wide grid">
+                                <div data-tween="0:spinIn:1.5:1" class="wide pad-3 text-center rounded shadow s-marg-3-bottom">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="http://johnpolacek.github.io/expressive-css/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Expressive CSS</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>From the Team <br/>at <a href="http://gesture.com/">Gesture</a></h6>
+                                    <h6>Configure with SASS</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 s-col-12 grid pad-2-sides">
+                            <div class="wide grid">
+                                <div data-tween="0:spinIn:1.5:1.25" class="wide pad-3 text-center rounded shadow">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="https://marvelapp.com/styleguide/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Marvel App</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>Styleguide for Marvel App&rsquo;s CSS</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-tween="intro:hide,1:showFlex:.5" class="grid box-1200 box-center marg-2-vert pad-3-bottom grid-align-center">
+                        <div class="col-4 s-col-12 grid pad-2-sides">
+                            <div class="wide grid">
+                                <div data-tween="1:spinIn:1.5:.5" class="wide pad-3 text-center rounded shadow">
+                                    <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                        <a href="https://v4-alpha.getbootstrap.com/">
+                                            <h6 class="pad-0 text-reg">
+                                                <div class="text-reg text-grey">Bootstrap v4</div>
+                                                <span class="text-14 italic">View Project</span>
+                                            </h6>
+                                        </a>
+                                    </div>
+                                    <h6>Extensive use of <br/>Atomic-style <br/>utility classes</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="intro:implode:1,0:fadeOut:.5,0:hide:.5" class="box-1100 box-center text-center pad-3-vert marg-3-top">
+                <h2 class="text-light pad-3-sides marg-3-top">How do I get started with Atomic CSS?</h2>
+            </div>
+            <div class="box-center text-center pad-3-vert marg-3-top">
+                <h5 data-tween="0:slideInUp:.5:.5" class="marg-3-bottom">Starting a New Project</h5>
+                <h2 data-tween="0:slideInLeftChars:.5:1">Pick a Framework</h2>
+                <h2 data-tween="0:fadeIn:1:1" class="text-36 text-reg">or...</h2>
+                <h2 data-tween="0:slideInRightChars:.5:1.5">Roll Your Own</h2>
+                <h2 data-tween="0:fadeIn:.5:2.5" class="text-36 text-light line-height-1">(It&rsquo;s not that hard)</h2>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="intro:bounceInDown:.5,outro:fadeOut:.25" class="box-center text-center pad-3-vert marg-3-top">
+                <h2 class="text-light pad-3-sides marg-3-top">Take a Framework Tour</h2>
+            </div>
+            <div class="box-1200 grid pad-3-bottom marg-3-bottom s-marg-0">
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:rotateIn:1:.5,outro:fadeOut:.25" class="rounded shadow pad-3 s-pad-2 text-center">
+                            <h5>Go Static</h5>
+                            <div class="wide pad-2-top text-24 text-light">
+                                <a href="http://tachyons.io" class="btn btn-large s-marg-3-sides">Tachyons</a>
+                                <a href="http://basscss.com/" class="btn btn-large s-marg-3-sides">Basscss</a>
+                                <a href="https://solid.buzzfeed.com/" class="btn btn-large s-marg-3-sides">Solid</a>                  
+                            </div>
+                            <p class="text-24 pad-3-top">Get familiar with them, then make your own by adjusting the SASS, PostCSS, etc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-2">
+                        <div data-tween="intro:rotateIn:1:1,outro:fadeOut:.25" class="rounded shadow pad-3 s-pad-2 text-center">
+                            <h5>Go Programmatic</h5>
+                            <div class="wide pad-2-top text-24 text-light">
+                                <a href="https://acss.io/" class="btn btn-large marg-2-sides">ACSS</a>
+                            </div>
+                            <p class="text-24 pad-3-top">Don&rsquo;t like shorthand? <br/>Configure as you see fit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-1200 box-center grid text-center pad-3-vert marg-3-top">
+                <div data-tween="intro:bounceInLeft:.5,outro:fadeOut:.25" class="col-12 grid-align-center">
+                    <h2 class="text-light pad-3-top marg-3-top">Other Functional Flavors</h2>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3 s-marg-0-bottom">
+                        <div data-tween="intro:rotateIn:1:.5,outro:fadeOut:.25" class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">For React</h5>
+                            <div class="pad-3-bottom">
+                                <h5 class="pad-0">Getting Started with Tachyons and React</h5>
+                                <p class="text-18 text-reg"><a href="https://github.com/tachyons-css/tachyons-and-react/tree/master/getting-started">Read article</a></s>
+                            </div>
+                            <div>
+                                <h5 class="pad-0">React Functional CSS&nbsp;Protips</h5>
+                                <p class="text-18 text-reg"><a href="https://github.com/chibicode/react-functional-css-protips">Read article</a></s>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 s-col-12">
+                    <div class="wide marg-3 s-marg-0-bottom" data-tween="intro:rotateIn:1:1,outro:fadeOut:.25">
+                        <div class="rounded shadow pad-3 text-center">
+                            <h5 class="text-light border-bottom marg-3-bottom">CSS in JS</h5>
+                            <div class="pad-2-bottom">
+                                <h5 class="pad-0">CXS</h5>
+                                <p class="text-18 text-reg"><a href="https://github.com/jxnblk/cxs">View Project</a></p>
+                            </div>
+                            <div class="pad-2-bottom">
+                                <h5 class="pad-0">Styletron</h5>
+                                <p class="text-18 text-reg"><a href="https://github.com/rtsao/styletron">View Project</a></p>
+                            </div>
+                            <div>
+                                <h5 class="pad-0">Polished</h5>
+                                <p class="text-18 text-reg"><a href="https://polished.js.org/">View Project</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-1200 box-center text-center pad-3 marg-3-top">
+                <h2 data-tween="intro:fadeIn:1" class="text-light pad-3-bottom marg-3-bottom">Rolling Your Own</h2>
+                <div data-tween="intro:tossInBottom:1" class="box-480 box-center shadow rounded pad-3">
+                    <h5 class="border-bottom marg-3-bottom">Configuration</h5>
+                    <ul class="list-none marg-0 text-24">
+                        <li>Grid / Spacing / Layout</li>
+                        <li>Typography</li>
+                        <li>Colors</li>
+                        <li>Utilities</li>
+                        <li>Responsive Overrides</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-1200 box-center text-center pad-3-vert marg-3-top">
+                <h2 data-tween="intro:rotateIn:.5,intro:slideInLeft:.5" class="text-light pad-3 marg-3">Managing Complexity</h2>
+                <h5 data-tween="intro:implodeWords:1">Template Organization is Key</h5>
+                <h5 data-tween="0:implodeWords:1">Create Components with Partials/Fragments</h5>
+                <h5 data-tween="1:implodeWords:1">Building a Library is Helpful</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-1200 box-center text-center pad-3-sides">
+                <h2 data-tween="intro:implodeWords:1" class="text-light pad-3-top marg-3-top">What about .btn?</h2>
+                <blockquote class="box-1200 pad-3-vert text-center">
+                    <h4 data-tween="intro:slideInLeft:.5:1" class="pad-3">&ldquo;We should favor both approaches to achieve our goals. A &lsquo;semantic&rsquo; name makes sense as a needed hook, not as a general rule.&rdquo;</h4>
+                    <cite data-tween="intro:fadeIn:.5:1.5" class="text-18 text-reg italic marg-bottom">Thierry Koblentz <br/><a href="https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/">Challenging CSS Best Practices</a><br/><span class="text-14 text-grey">October 21, 2013</span></cite>
+                </blockquote>
+                <pre data-tween="intro:slideInUp:.25:2" class="box-480 box-center pad-3 text-24 bgr-white shadow"><code>&lt;button class="btn bgr-red"&gt;</code></pre>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-1200 box-center text-center pad-3-vert marg-3-top">
+                <h2 data-tween="intro:implodeWords:1" class="text-light pad-3-top marg-3-top">What about .card?</h2>
+                <h4 data-tween="intro:bounceInUp:.5:1">How about a template partial named card instead?</h4>
+                <p data-tween="intro:fadeIn:.5:1.5" class="marg-3-top text-grey" data-tween="intro:fadeIn:1:2">( Do what works for you )</p>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="0:fadeOut:.5,0:hide:.5" class="box-center text-center pad-3-top marg-3-top">
+                <h2 data-tween="intro:slideInVerticalChars:1" class="text-light pad-3 marg-3">What about Refactoring?</h2>
+                <h5 data-tween="intro:slideInVerticalChars:1:.5" class="wide">Analyze First</h5>
+            </div>
+            <div class="grid box-1200 box-center">
+                <div class="col-4 s-col-12 s-marg-2-bottom grid pad-2-sides">
+                    <div class="wide grid">
+                        <div data-tween="0:tossInBottom:.5:.5" class="wide pad-2 text-center rounded shadow">
+                            <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                <a href="http://cssstats.com/">
+                                    <h6 class="pad-0 text-reg">
+                                        <div class="text-reg text-grey">CSS Stats</div>
+                                        <span class="text-14 italic">View Project</span>
+                                    </h6>
+                                </a>
+                            </div>
+                            <h6>Get statistics on your CSS</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 s-col-12 s-marg-2-bottom grid pad-2-sides">
+                    <div class="wide grid">
+                        <div data-tween="0:tossInBottom:.5:1" class="wide pad-2 text-center rounded shadow">
+                            <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                <a href="https://atomize-io.herokuapp.com/">
+                                    <h6 class="pad-0 text-reg">
+                                        <div class="text-reg text-grey">Atomize IO</div>
+                                        <span class="text-14 italic">View Project</span>
+                                    </h6>
+                                </a>
+                            </div>
+                            <h6>See how much your site can benefit from Atomic CSS</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 s-col-12 s-marg-2-bottom grid pad-2-sides">
+                    <div class="wide grid">
+                        <div data-tween="0:tossInBottom:.5:1.5" class="wide pad-2 text-center rounded shadow">
+                            <div class="border-bottom pad-2-bottom marg-3-bottom">
+                                <a href="http://www.csspurge.com/">
+                                    <h6 class="pad-0 text-reg">
+                                        <div class="text-reg text-grey">CSS Purge</div>
+                                        <span class="text-14 italic">View Project</span>
+                                    </h6>
+                                </a>
+                            </div>
+                            <h6>Learn and compare your amongst 42 popular sites and frameworks</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.25" class="box-center text-center pad-3-vert marg-3-top">
+                <h2 data-tween="intro:fadeIn:.5" class="text-light pad-3 marg-3">Decision Time</h2>
+                <div class="wide text-center pad-3-bottom marg-3-bottom">
+                    <h2 data-tween="intro:slideInLeftChars:.5:.5">Go Gradual</h2>
+                    <h2 data-tween="intro:fadeIn:1:1" class="text-36 text-reg">or...</h2>
+                    <h2 data-tween="intro:slideInRightChars:.5:1.5">Bandaid Rip</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="col-12 row-3 grid-align-center grid-align-middle">
+                <h2 data-tween="intro:fadeIn:.5" class="text-light pad-3 marg-3">Taking It Slow</h2>
+            </div>
+            <div class="col-12 row-9">
+                <div class="wide text-center">
+                    <div class="box-640 box-center text-center pad-3-sides">
+                        <div data-tween="0:fadeOut:.5,0:hide:.5" class="pad-3-vert">
+                            <h6 data-tween="intro:fadeIn:.5:.5" class="text-grey text-reg pad-2-bottom marg-2-bottom border-bottom">Step 1</h6>
+                            <p data-tween="intro:scaleIn:.5:1" class="text-36 bold">Find the most common style declarations in your CSS.</p>
+                        </div>
+                        <div data-tween="1:fadeOut:.5,1:hide:.5" class="pad-3-vert">
+                            <h6 data-tween="0:fadeIn:.5:.5" class="text-grey text-reg pad-2-bottom marg-2-bottom border-bottom">Step 2</h6>
+                            <div data-tween="0:scaleIn:.5:1">
+                                <p class="text-36 bold">Pick a theme <br/><span class="text-24">(e.g. typography, colors, spacing)</span></p>
+                                <p class="text-36 bold">Replace with Atomic classes.</p>
+                                <p class="text-36 bold">Go for big wins first.</p>
+                            </div>
+                        </div>
+                        <div data-tween="outro:fadeOut:.25" class="pad-3-vert">
+                            <h6 data-tween="1:fadeIn:.5:.5" class="text-grey text-reg pad-2-bottom marg-2-bottom border-bottom">Step 3</h6>
+                            <p data-tween="1:scaleIn:.5:1" class="text-36 bold">Repeat Step 2 until satisfied.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div class="col-12 row-3 grid-align-center grid-align-middle">
+                <h2 data-tween="intro:fadeIn:.5,2:fadeOut:.5,2:hide:.5" class="text-light pad-3-vert marg-3-vert">Rip That Bandaid</h2>
+            </div>
+            <div class="col-12 row-9">
+                <div class="box-960 box-center text-center pad-3-sides">
+                    <div data-tween="0:fadeOut:.5,0:hide:.5" class="pad-3-vert">
+                        <h6 data-tween="intro:fadeIn:.5:.5" class="text-grey text-reg pad-2-bottom marg-2-bottom border-bottom">Step 1</h6>
+                        <div data-tween="intro:scaleIn:.5:1">
+                            <p class="text-36 bold">Add Tachyons* <br/>to the end of your CSS.</p>
+                            <p class="text-18 text-reg pad-3-bottom">*or another Atomic library</p>
+                        </div>
+                    </div>
+                    <div data-tween="1:fadeOut:.5,1:hide:.5" class="pad-3-vert" class="pad-3-vert">
+                        <h6 data-tween="0:fadeIn:.5:.5" class="text-grey text-reg pad-2-bottom marg-2-bottom border-bottom">Step 2</h6>
+                        <div data-tween="0:scaleIn:.5:1">
+                            <p class="text-36 bold">Do a first pass.</p>
+                            <p class="text-36 bold">Methodically remove legacy classes, replace with Atomic classes.</p>
+                        </div>
+                    </div>
+                    <div data-tween="2:fadeOut:.5,2:hide:.5" class="pad-3-vert">
+                        <h6 data-tween="1:fadeIn:.5:.5" class="text-grey text-reg pad-2-bottom marg-2-bottom border-bottom">Step 3</h6>
+                        <div data-tween="1:scaleIn:.5:1">
+                            <p class="text-36 bold">Kill all legacy CSS. Assess&nbsp;the&nbsp;damage.</p>
+                            <p class="text-36 bold">Refactor to Tachyons, extend&nbsp;as&nbsp;needed.</p>
+                            <p class="text-36 bold">Use other tools or restore legacy CSS only when&nbsp;necessary</p>
+                        </div>
+                    </div>
+                    <div data-tween="intro:hide,2:show:.5,2:scaleIn:.5:.5">
+                        <h6 class="text-reg pad-3-top pad-1-bottom italic text-grey">Source</h6>
+                        <p class="text-36">Full re-write in 10 days with Tachyons and Functional CSS: A case study<br/><a class="text-reg italic text-18" href="https://medium.com/@simonswiss/full-re-write-in-10-days-with-tachyons-and-functional-css-a-case-study-part-4-b565745ca1e5#.e24qivwie">Read the full case study</a></p>
+                        <p class="text-36 pad-3-vert">The switch to Tachyons resulted in a <span class="bold">50% file size reduction</span> and <span class="bold">75% fewer style declarations</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fallOut:.5" class="box-960 box-center text-center">
+                <h2 data-tween="intro:implode:.5" class="text-light pad-3 marg-3">Exciting Times for the Front End</h2>
+                <h5 data-tween="intro:scaleIn:.5:.5">Always new things to try</h5>
+                <h5 data-tween="intro:scaleIn:.5:1">Write about what you learn</h5>
+                <h5 data-tween="intro:scaleIn:.5:1.5">Open Source your work</h5>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-white grid-align-middle grid-align-center col-12 row-12">
+            <div data-tween="outro:fadeOut:.5" class="box-1200 box-center text-center">
+                <h2 data-tween="intro:implode:4" class="text-light pad-3 marg-3">Questions?</h2>
+                <p data-tween="intro:fadeIn:.5:4" class="text-grey">Find me on Twitter <a href="https://twitter.com/johnpolacek">@johnpolacek</a></p>
+                <p data-tween="intro:fadeIn:.5:4.5" class="text-grey">Slides are at <a href="http://">johnpolacek.com/rethinking</a></p>
+            </div>
+        </section>
+
+        <section class="expand-v width-vw bgr-green grid-align-middle grid-align-center col-12 row-12">
+            <div class="box-1200 box-center text-center pad-3-bottom marg-3-bottom">
+                <h3 data-tween="intro:implode:1,0:explode:.5,0:hide:.5" class="text-light pad-3-top marg-3-top">One more thing...</h3>
+                <h2 data-tween="intro:implode:1:.5" class="text-white text-light pad-3-bottom marg-3-bottom"><span class="text-36">Built with</span><br/>TweenDeck</h2>
+                <h5 data-tween="intro:fadeIn:.5:1" class="transparent50 text-reg pad-3-bottom marg-3-bottom">Next level animation for web presentations</h5>
+                <p data-tween="intro:fadeIn:.5:1.25">Go to <a href="https://johnpolacek.github.io/tweendeck/">TweenDeck on Github</a></p>
+            </div>
+        </section>
+
+        <script>
+            function enterPresentationMode() {
+                var script = document.createElement('script');
+                script.setAttribute('type', 'text/javascript');
+                script.setAttribute('src', './js/scripts.js');
+                document.head.appendChild(script);
+            }
+        </script>
+    </body>
+</html>

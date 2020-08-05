@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Charts</title>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script> 
+    google.charts.load('current', {'packages':['line', 'corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var button = document.getElementById('change-chart');
+      var chartDiv = document.getElementById('chart_div');
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Month');
+      data.addColumn('number', "Commits");
+
+      data.addRows([
+        [new Date(2013, 8, 6),  1500],
+        [new Date(2014, 8, 14),  4812],
+        [new Date(2015, 4, 5),  7726],
+        [new Date(2015, 9, 8),  9692],
+        [new Date(2015, 9, 17),  9830],
+        [new Date(2017, 4, 29),  20257]
+      ]);
+
+      var materialOptions = {
+        chart: {
+          title: 'Number of Commits over Time'
+        },
+        width: 1200,
+        height: 600,
+        series: {
+          // Gives each series an axis name that matches the Y-axis below.
+          0: {axis: 'Temps'}
+        },
+        axes: {
+          // Adds labels to each axis; they don't have to match the axis names.
+          y: {
+            Temps: {label: 'Commits'}
+          }
+        }
+      };
+
+      var classicOptions = {
+        title: 'Number of Commits over Time',
+        width: 900,
+        height: 500,
+        // Gives each series an axis that matches the vAxes number below.
+        series: {
+          0: {targetAxisIndex: 0}
+        },
+        vAxes: {
+          // Adds titles to each axis.
+          0: {title: 'Commits'}
+        },
+        hAxis: {
+          ticks: [new Date(2013, 5), new Date(2013, 8), new Date(2013, 11), new Date(2014, 0),
+                  new Date(2014, 2),  new Date(2014, 5), new Date(2014, 8), new Date(2014, 11),
+                  new Date(2015, 2), new Date(2015, 5), new Date(2015, 8), new Date(2015, 11)
+                 ]
+        },
+        vAxis: {
+          viewWindow: {
+            max: 30
+          }
+        }
+      };
+
+      function drawMaterialChart() {
+        var materialChart = new google.charts.Line(chartDiv);
+        materialChart.draw(data, materialOptions);
+        button.innerText = 'Change to Classic';
+        button.onclick = drawClassicChart;
+      }
+
+      function drawClassicChart() {
+        var classicChart = new google.visualization.LineChart(chartDiv);
+        classicChart.draw(data, classicOptions);
+        button.innerText = 'Change to Material';
+        button.onclick = drawMaterialChart;
+      }
+
+      drawMaterialChart();
+
+    }</script>
+  </body>
+</html>
+     

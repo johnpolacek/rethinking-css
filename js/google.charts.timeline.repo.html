@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Charts</title>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script> 
+    google.charts.load('current', {'packages':['line', 'corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var button = document.getElementById('change-chart');
+      var chartDiv = document.getElementById('chart_div');
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Month');
+      data.addColumn('number', "Size (MB)");
+
+      data.addRows([
+        [new Date(2013, 8, 6),  467],
+        [new Date(2014, 8, 14),  482],
+        [new Date(2015, 4, 5),  485],
+        [new Date(2015, 9, 8),  487],
+        [new Date(2015, 9, 17),  491],
+        [new Date(2017, 4, 29),  593]
+      ]);
+
+      var materialOptions = {
+        chart: {
+          title: 'Repository Size over Time (MB)'
+        },
+        width: 1200,
+        height: 600,
+        series: {
+          // Gives each series an axis name that matches the Y-axis below.
+          0: {axis: 'Temps'}
+        },
+        axes: {
+          // Adds labels to each axis; they don't have to match the axis names.
+          y: {
+            Temps: {label: 'Size (MB)'}
+          }
+        }
+      };
+
+      var classicOptions = {
+        title: 'Size of Repository Size over Time',
+        width: 900,
+        height: 500,
+        // Gives each series an axis that matches the vAxes number below.
+        series: {
+          0: {targetAxisIndex: 0}
+        },
+        vAxes: {
+          // Adds titles to each axis.
+          0: {title: 'Size (MB)'}
+        },
+        hAxis: {
+          ticks: [new Date(2013, 5), new Date(2013, 8), new Date(2013, 11), new Date(2014, 0),
+                  new Date(2014, 2),  new Date(2014, 5), new Date(2014, 8), new Date(2014, 11),
+                  new Date(2015, 2), new Date(2015, 5), new Date(2015, 8), new Date(2015, 11)
+                 ]
+        },
+        vAxis: {
+          viewWindow: {
+            max: 30
+          }
+        }
+      };
+
+      function drawMaterialChart() {
+        var materialChart = new google.charts.Line(chartDiv);
+        materialChart.draw(data, materialOptions);
+        button.innerText = 'Change to Classic';
+        button.onclick = drawClassicChart;
+      }
+
+      function drawClassicChart() {
+        var classicChart = new google.visualization.LineChart(chartDiv);
+        classicChart.draw(data, classicOptions);
+        button.innerText = 'Change to Material';
+        button.onclick = drawMaterialChart;
+      }
+
+      drawMaterialChart();
+
+    }</script>
+  </body>
+</html>
+     

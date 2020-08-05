@@ -1,0 +1,36 @@
+{
+  "name": "rethinking-css",
+  "title": "Rethinking CSS",
+  "version": "1.0.0",
+  "description": "A talk about using Atomic CSS for Scaling, Performance and Simplicity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnpolacek/rethinking-css.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "tool",
+    "utilities",
+    "responsive"
+  ],
+  "devDependencies": {
+    "onchange": "latest",
+    "node-sass": "latest"
+  },
+  "scripts": {
+    "build": "node-sass css/sass/base.scss css/stylesheets/base.css --output-style expanded && node-sass css/sass/utilities.scss css/stylesheets/utilities.css --output-style compact && node-sass css/sass/components.scss css/stylesheets/components.css --output-style expanded && node-sass css/sass/style.scss css/style.min.css --output-style compressed --source-map true",
+    "watch": "onchange 'css/sass/**/*' -- npm run build"
+  },
+  "author": {
+    "name": "John Polacek",
+    "url": "http://www.johnpolacek.com"
+  },
+  "license": "MIT",
+  "homepage": "http://johnpolacek.github.io/rethinking-css/",
+  "files": [
+    "css",
+    "styleguide",
+    "index.html"
+  ]
+}

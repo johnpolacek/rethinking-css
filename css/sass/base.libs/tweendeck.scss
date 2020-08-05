@@ -1,0 +1,35 @@
+/* 
+
+  ------------------------------------------------------------
+  Styles for when TweenDeck is in presentation mode 
+
+  Use .tweendeck-on as a hook for updating styles when in ‘Presentation Mode’
+
+*/
+.tweendeck-on, .tweendeck-on body {
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+
+.tweendeck-on .slide { 
+  display:flex;
+  flex-wrap:wrap;
+  flex:0 0 auto;
+  flex-basis:100%;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: absolute;
+  top:0;left:0;
+  width:100%;
+  overflow: hidden;
+  display:none;
+}
+
+.tweendeck-on .tweendeck-hide {
+  display:none;
+}
+.tweendeck-on .tweendeck-show {
+  display:block !important;
+}
